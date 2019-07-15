@@ -11,9 +11,9 @@
       function getSearchParameters() {
         var prmstr = window.location.search.substr(1);
         if (prmstr != null && prmstr != "") {
-          prmstr.split("=");
-          const key = prmstr[0]
-          const value = prmstr[1]
+          const paramArr = prmstr.split("=");
+          const key = paramArr[0]
+          const value = paramArr[1]
           console.log(key, value)
           return [key, value]
         }
