@@ -23,6 +23,19 @@
         return "unknown";
       }
 
+      function DetectAndServe(){
+        let os = getMobileOperatingSystem();
+        if (os == "Android") {
+            window.location.href = "http://www.Androidexample.com"; 
+        } else if (os == "iOS") {
+            window.location.href = "http://www.IOSexample.com";
+        } else if (os == "Windows Phone") {
+            window.location.href = "http://www.WindowsPhoneexample.com";
+        } else {
+            window.location.href = "http://www.NowherLandexample.com";
+        }
+      }
+
       alert(getMobileOperatingSystem())
 
       function getSearchParameters() {
@@ -41,11 +54,14 @@
         }
       }
 
-    //   window.onload = async function() {
-    //     await getSearchParameters()
-    //     console.log(`exp://mu-p87.kimofthecode.walkertreker.exp.direct:80/--/${path}?${key}=${value}`)
-    //     window.location = `exp://mu-p87.kimofthecode.walkertreker.exp.direct:80/--/${path}?${key}=${value}`;
-    // }
+      window.onload = async function() {
+        await getSearchParameters()
+
+        window.location = `exp://mu-p87.kimofthecode.walkertreker.exp.direct:80/--/${path}?${key}=${value}`;
+        setTimeout(function() {
+          window.location = `market://`;
+        },1000)
+    }
 
     </script>
   </head>
