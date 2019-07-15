@@ -5,19 +5,32 @@
       document.addEventListener('click', function (event) {
         if (!event.target.matches('.clickme')) return;
         event.preventDefault();
-        const [key, value] = getSearchParameters();
+        const [path, key, value] = getSearchParameters();
+        console.log(path, key, value)
         }, false);
 
       function getSearchParameters() {
-        var prmstr = window.location.search.substr(1);
-        if (prmstr != null && prmstr != "") {
-          const paramArr = prmstr.split("=");
+        paramData = []
+        var pathparams = window.location.search.substr(1);
+        var params = window.location.search.substr(2);
+        if (pathparams != null && pathparams != "") {
+          const pathName = pathparams.split("=");
+          const path = pathName[1]
+          console.log(path)
+          paramData.push(path)
+        }
+        if (params != null && params != "") {
+          const paramArr = params.split("=");
           const key = paramArr[0]
           const value = paramArr[1]
           console.log(key, value)
-          return [key, value]
+          paramData.push(key, value)
         }
+        return paramData
       }
+    //   window.onload = function() {
+    //     window.location = 'exp://mu-p87.kimofthecode.walkertreker.exp.direct:80/--/join?campaignId=11f49e0f-e221-4b75-9b39-cd72031de4f4';
+    // }
     </script>
   </head>
 
