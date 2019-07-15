@@ -2,9 +2,12 @@
 <html>
   <head>
     <script>
-      function logger() {
-        console.log(window.location.search.substr(1))
-      }
+
+      document.addEventListener('click', function (event) {
+      if (!event.target.matches('.click-me')) return;
+      event.preventDefault();
+      console.log(event.target);
+      }, false);
     </script>
 
   </head>
@@ -12,6 +15,6 @@
   <body>
     <div>This is the body</div>
     <a href='exp://mu-p87.kimofthecode.walkertreker.exp.direct:80/--/join?campaignId=11f49e0f-e221-4b75-9b39-cd72031de4f4'>HERE IS THE CLICKY TEXT</a>
-    <button onClick='logger'></button>
+    <button class='.clickme'></button>
   </body>
 </html>
