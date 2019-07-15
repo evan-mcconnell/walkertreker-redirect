@@ -6,12 +6,24 @@
       let key = '';
       let value = '';
 
-      // document.addEventListener('click', function (event) {
-      //   if (!event.target.matches('.clickme')) return;
-      //   event.preventDefault();
-      //   const [path, key, value] = getSearchParameters();
-      //   console.log(path, key, value)
-      //   }, false);
+      function getMobileOperatingSystem() {
+        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        // Windows Phone must come first because its UA also contains "Android"
+        if (/windows phone/i.test(userAgent)) {
+            return "Windows Phone";
+        }
+        if (/android/i.test(userAgent)) {
+            return "Android";
+        }
+        // iOS detection from: http://stackoverflow.com/a/9039885/177710
+        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            return "iOS";
+        }
+        return "unknown";
+      }
+
+      alert(getMobileOperatingSystem())
 
       function getSearchParameters() {
         const allParamsArr = window.location.search.substr(1).split('&')
@@ -28,18 +40,17 @@
           console.log(key, value)
         }
       }
-      window.onload = async function() {
-        await getSearchParameters()
-        console.log(`exp://mu-p87.kimofthecode.walkertreker.exp.direct:80/--/${path}?${key}=${value}`)
-        window.location = `exp://mu-p87.kimofthecode.walkertreker.exp.direct:80/--/${path}?${key}=${value}`;
-    }
+
+    //   window.onload = async function() {
+    //     await getSearchParameters()
+    //     console.log(`exp://mu-p87.kimofthecode.walkertreker.exp.direct:80/--/${path}?${key}=${value}`)
+    //     window.location = `exp://mu-p87.kimofthecode.walkertreker.exp.direct:80/--/${path}?${key}=${value}`;
+    // }
 
     </script>
   </head>
 
   <body>
-    <div>This is the body</div>
-    <a href='exp://mu-p87.kimofthecode.walkertreker.exp.direct:80/--/join?campaignId=11f49e0f-e221-4b75-9b39-cd72031de4f4'>HERE IS THE CLICKY TEXT</a>
-    <button class='clickme'></button>
+    <div>This is the body of the walkertreker redirect</div>
   </body>
 </html>
