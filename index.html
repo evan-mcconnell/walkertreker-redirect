@@ -3,12 +3,22 @@
   <head>
     <script>
       document.addEventListener('click', function (event) {
-      if (!event.target.matches('.clickme')) return;
-      event.preventDefault();
-      console.log(window.location.search.substr(1));
-      }, false);
-    </script>
+        if (!event.target.matches('.clickme')) return;
+        event.preventDefault();
+        const [key, value] = getSearchParameters();
+        }, false);
 
+      function getSearchParameters() {
+        var prmstr = window.location.search.substr(1);
+        if (prmstr != null && prmstr != "") {
+          prmstr.split("=");
+          const key = prmstr[0]
+          const value = prmstr[1]
+          console.log(key, value)
+          return [key, value]
+        }
+      }
+    </script>
   </head>
 
   <body>
