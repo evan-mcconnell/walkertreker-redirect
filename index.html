@@ -2,35 +2,37 @@
 <html>
   <head>
     <script>
-      document.addEventListener('click', function (event) {
-        if (!event.target.matches('.clickme')) return;
-        event.preventDefault();
-        const [path, key, value] = getSearchParameters();
-        console.log(path, key, value)
-        }, false);
+      let path = '';
+      let key = '';
+      let value = '';
+
+      // document.addEventListener('click', function (event) {
+      //   if (!event.target.matches('.clickme')) return;
+      //   event.preventDefault();
+      //   const [path, key, value] = getSearchParameters();
+      //   console.log(path, key, value)
+      //   }, false);
 
       function getSearchParameters() {
-        paramData = []
         const allParamsArr = window.location.search.substr(1).split('&')
         console.log(allParamsArr)
         if (allParamsArr[0] != null && allParamsArr[0] != "") {
           const pathName = allParamsArr[0].split("=");
-          const path = pathName[1]
+          path = pathName[1]
           console.log(path)
-          paramData.push(path)
         }
         if (allParamsArr[1] != null && allParamsArr[1] != "") {
           const paramArr = allParamsArr[1].split("=");
-          const key = paramArr[0]
-          const value = paramArr[1]
+          key = paramArr[0]
+          value = paramArr[1]
           console.log(key, value)
-          paramData.push(key, value)
         }
-        return paramData
       }
-    //   window.onload = function() {
-    //     window.location = 'exp://mu-p87.kimofthecode.walkertreker.exp.direct:80/--/join?       campaignId=11f49e0f-e221-4b75-9b39-cd72031de4f4';
-    // }
+
+      window.onload = function() {
+        console.log(`exp://mu-p87.kimofthecode.walkertreker.exp.direct:80/--/${path}?       ${key}=${value}`)
+        window.location = `exp://mu-p87.kimofthecode.walkertreker.exp.direct:80/--/${path}?       ${key}=${value}`;
+    }
     </script>
   </head>
 
