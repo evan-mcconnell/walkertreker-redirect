@@ -11,18 +11,16 @@
 
       function getSearchParameters() {
         paramData = []
-        var pathparams = window.location.search.substr(1);
-        console.log(pathparams)
-        var params = window.location.search.substr(2);
-        console.log(params)
-        if (pathparams != null && pathparams != "") {
-          const pathName = pathparams.split("=");
+        const allParamsArr = window.location.search.substr(1).split('&')
+        console.log(allParamsArr)
+        if (allParamsArr[0] != null && allParamsArr[0] != "") {
+          const pathName = allParamsArr[0].split("=");
           const path = pathName[1]
           console.log(path)
           paramData.push(path)
         }
-        if (params != null && params != "") {
-          const paramArr = params.split("=");
+        if (allParamsArr[1] != null && allParamsArr[1] != "") {
+          const paramArr = allParamsArr[0].split("=");
           const key = paramArr[0]
           const value = paramArr[1]
           console.log(key, value)
@@ -31,7 +29,7 @@
         return paramData
       }
     //   window.onload = function() {
-    //     window.location = 'exp://mu-p87.kimofthecode.walkertreker.exp.direct:80/--/join?campaignId=11f49e0f-e221-4b75-9b39-cd72031de4f4';
+    //     window.location = 'exp://mu-p87.kimofthecode.walkertreker.exp.direct:80/--/join?       campaignId=11f49e0f-e221-4b75-9b39-cd72031de4f4';
     // }
     </script>
   </head>
