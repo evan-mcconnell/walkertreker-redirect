@@ -23,20 +23,20 @@
         return "unknown";
       }
 
-      function DetectAndServe(){
-        let os = getMobileOperatingSystem();
-        if (os == "Android") {
-            window.location.href = "http://www.Androidexample.com"; 
-        } else if (os == "iOS") {
-            window.location.href = "http://www.IOSexample.com";
-        } else if (os == "Windows Phone") {
-            window.location.href = "http://www.WindowsPhoneexample.com";
-        } else {
-            window.location.href = "http://www.NowherLandexample.com";
-        }
-      }
+      // function DetectAndServe(){
+      //   let os = getMobileOperatingSystem();
+      //   if (os == "Android") {
+      //       window.location.href = "http://www.Androidexample.com"; 
+      //   } else if (os == "iOS") {
+      //       window.location.href = "http://www.IOSexample.com";
+      //   } else if (os == "Windows Phone") {
+      //       window.location.href = "http://www.WindowsPhoneexample.com";
+      //   } else {
+      //       window.location.href = "http://www.NowherLandexample.com";
+      //   }
+      // }
 
-      alert(getMobileOperatingSystem())
+      console.log(getMobileOperatingSystem())
 
       function getSearchParameters() {
         const allParamsArr = window.location.search.substr(1).split('&')
@@ -57,7 +57,7 @@
       window.onload = async function() {
         await getSearchParameters()
 
-        window.location = `exp://mu-p87.kimofthecode.walkertreker.exp.direct:80/--/${path}?${key}=${value}`;
+        // window.location = `exp://mu-p87.kimofthecode.walkertreker.exp.direct:80/--/${path}?${key}=${value}`;
         setTimeout(function() {
           window.location = `market://`;
         },1000)
