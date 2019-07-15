@@ -2,11 +2,10 @@
 <html>
   <head>
     <script>
-
       document.addEventListener('click', function (event) {
-      if (!event.target.matches('.click-me')) return;
+      if (!event.target.matches('.clickme')) return;
       event.preventDefault();
-      console.log(event.target);
+      console.log(window.location.search.substr(1));
       }, false);
     </script>
 
