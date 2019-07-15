@@ -27,11 +27,12 @@
           value = paramArr[1]
           console.log(key, value)
         }
-      window.onload = function() {
+      }
+      window.onload = async function() {
+        await getSearchParameters()
         console.log(`exp://mu-p87.kimofthecode.walkertreker.exp.direct:80/--/${path}?       ${key}=${value}`)
         window.location = `exp://mu-p87.kimofthecode.walkertreker.exp.direct:80/--/${path}?       ${key}=${value}`;
     }
-      }
 
     </script>
   </head>
