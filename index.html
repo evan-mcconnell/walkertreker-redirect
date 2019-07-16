@@ -8,7 +8,6 @@
 
       function getMobileOperatingSystem() {
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
         // Windows Phone must come first because its UA also contains "Android"
         if (/windows phone/i.test(userAgent)) {
             return "Windows Phone";
@@ -16,7 +15,6 @@
         if (/android/i.test(userAgent)) {
             return "Android";
         }
-        // iOS detection from: http://stackoverflow.com/a/9039885/177710
         if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
             return "iOS";
         }
@@ -57,13 +55,15 @@
       }
 
       window.onload = async function() {
+        const OS = getMobileOperatingSystem()
         await getSearchParameters()
         window.location = `exp://mu-p87.kimofthecode.walkertreker.exp.direct:80/--/${path}?${key}=${value}`;
-        // setTimeout(function() {
-        //   window.location = `http://play.google.com/store/apps/details?id=walkertreker`;
-        // },1000)
-    }
-
+        if (OS === 'Android') {
+          setTimeout(function() {
+            window.location = `http://play.google.com/store/apps/details?id=walkertreker`;
+          },1000)
+        }
+      }
     </script>
   </head>
 
