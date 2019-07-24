@@ -52,6 +52,11 @@
           value = paramArr[1]
           console.log(key, value)
         }
+        if (allParamsArr[2] != null && allParamsArr[2] != "") {
+          const paramArr = allParamsArr[2].split("=");
+          uri = paramArr[1]
+          console.log(uri)
+        }
       }
 
       window.onload = async function() {
