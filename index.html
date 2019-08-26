@@ -62,7 +62,7 @@
       window.onload = async function() {
         const OS = getMobileOperatingSystem()
         await getSearchParameters()
-        window.location = `exp://10.46.14.130:19000/--/${path}?${key}=${value}`;
+        window.location = `exp://10.1.10.51:19000/--/${path}?${key}=${value}`;
         if (OS === 'Android') {
           setTimeout(function() {
             window.location = `http://play.google.com/store/apps/details?id=walkertreker`;
